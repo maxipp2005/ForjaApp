@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Forja</title>
+  <meta name="description" content="Forja: calorías, gimnasio y MMA en una app rápida y minimalista.">
+  <meta name="theme-color" content="#F4F4F1" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#0B0B0D" media="(prefers-color-scheme: dark)">
+  <meta name="color-scheme" content="light dark">
+  <link rel="manifest" href="manifest.webmanifest">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-title" content="Forja">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+  <link rel="icon" href="icons/icon.svg" type="image/svg+xml">
+  <link rel="icon" href="icons/favicon-32.png" type="image/png" sizes="32x32">
+  <link rel="stylesheet" href="css/styles.css">
+  <script>
+    try { var t = (JSON.parse(localStorage.getItem('forja:v1') || '{}').settings || {}).theme; if (t && t !== 'auto') document.documentElement.dataset.theme = t; } catch (e) {}
+  </script>
+</head>
+<body>
+  <div class="app">
+    <nav class="nav" aria-label="Secciones">
+      <div class="nav__brand"><img src="icons/icon.svg" alt="" width="30" height="30" style="border-radius:8px"><span>Forja</span></div>
+      <a class="nav__item" href="#/hoy" data-route="hoy"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3s5 4.5 5 10a5 5 0 0 1-10 0c0-2.5 1.5-4 1.5-4s.5 2.5 2.5 2.5C11 9 12 3 12 3z"/></svg><span>Hoy</span></a>
+      <a class="nav__item" href="#/gym" data-route="gym" style="position:relative"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 9.5v5M6 7v10M18 7v10M21 9.5v5M6 12h12"/></svg><span>Gimnasio</span><i id="gymDot" hidden style="position:absolute;top:.25rem;left:calc(50% + .5rem);width:.5rem;height:.5rem;border-radius:50%;background:var(--accent-text)"></i></a>
+      <a class="nav__item" href="#/mma" data-route="mma"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 20h9v-3l2.5-3V8.5A3.5 3.5 0 0 0 15 5h-4.5A3.5 3.5 0 0 0 7 8.5V20zM7 12h7.5a2 2 0 0 0 0-4H11"/></svg><span>MMA</span></a>
+      <a class="nav__item" href="#/progreso" data-route="progreso"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/></svg><span>Progreso</span></a>
+      <a class="nav__item" href="#/ajustes" data-route="ajustes"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="3"/><path d="M12 2.5v3M12 18.5v3M4.2 6.2l2.1 2.1M17.7 15.7l2.1 2.1M2.5 12h3M18.5 12h3M4.2 17.8l2.1-2.1M17.7 8.3l2.1-2.1"/></svg><span>Ajustes</span></a>
+    </nav>
+    <main class="main" id="main" tabindex="-1"></main>
+  </div>
+  <div class="toasts" id="toasts" role="status" aria-live="polite"></div>
+  <dialog class="sheet" id="sheet"><form method="dialog" class="sheet__inner" id="sheetInner"></form></dialog>
+  <noscript>Forja necesita JavaScript.</noscript>
+  <script src="js/forja.js" defer></script>
+</body>
+</html>
